@@ -17,12 +17,12 @@ return new class extends Migration
             $table->string('slug');
             $table->string('thumb')->nullable();
             $table->unsignedInteger('price')->default(0);
-            $table->foreignIdFor(\App\Models\Brand::class)->constrained()->nullOnDelete()->cascadeOnUpdate();
+            $table->foreignIdFor(\Modules\Catalog\Models\Brand::class)->constrained()->nullOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
 
         Schema::create('category_product', function (Blueprint $table) {
-            $table->foreignIdFor(\App\Models\Category::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignIdFor(\Modules\Catalog\Models\Category::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(\App\Models\Product::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
         });
     }

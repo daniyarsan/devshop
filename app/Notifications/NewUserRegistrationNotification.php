@@ -36,7 +36,7 @@ class NewUserRegistrationNotification extends Notification implements ShouldQueu
     {
         return (new MailMessage)
                     ->line('Welcome')
-                    ->action('Go to ', route('home'))
+                    ->action('Go to ', route('index'))
                     ->line('Glad to meet you');
     }
 

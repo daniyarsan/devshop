@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Brand;
-use App\Models\Category;
 use App\Models\Product;
-use App\Models\User;
 use Database\Factories\BrandFactory;
+use Database\Factories\CategoryFactory;
+use Database\Factories\UserFactory;
+use Modules\User\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(5)->create();
-        Brand::factory(20)->create();
-        Category::factory(10)->has(Product::factory(5))->create();
+        UserFactory::new()->count(5)->create();
+        BrandFactory::new()->count(10) ->create();
+        CategoryFactory::new()->count(10)->has(Product::factory(5))->create();
     }
 }

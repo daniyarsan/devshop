@@ -2,6 +2,7 @@ module.exports = {
 
   content: [
       "./resources/**/*.blade.php",
+      "./src/Modules/**/*.blade.php",
   ],
   darkMode: 'media',
   theme: {
@@ -45,8 +46,5 @@ module.exports = {
   },
   variants: {
     extend: {},
-  },
-  plugins: [
-		require('@tailwindcss/line-clamp'),
-	],
+  }
 }

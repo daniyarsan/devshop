@@ -2,13 +2,17 @@
 
 namespace Database\Factories;
 
+use Modules\Catalog\Models\Brand;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Brand>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Catalog\Models\Brand>
  */
 class BrandFactory extends Factory
 {
+
+    protected $model = Brand::class;
+
     /**
      * Define the model's default state.
      *
@@ -18,7 +22,9 @@ class BrandFactory extends Factory
     {
         return [
             'title' => fake()->name(),
-            'thumb' => fake()->file(base_path('/tests/Fixtures/Images/brands'), storage_path('/app/public/images/brands'), false ),
+            'featured' => fake()->boolean,
+            'sorting' => fake()->numberBetween(1, 999),
+            'thumb' => fake()->file(base_path('/tests/Fixtures/images/brands'), storage_path('/app/public/images/brands'), false)
         ];
     }
 }

@@ -8,7 +8,14 @@
 
    {{$socialAuth}}
 
-   {{$buttons}}
+    <div class="space-y-3 mt-5">
+        <div class="text-xxs md:text-xs">
+            <a href="{{route('user.forgot')}}" class="text-white hover:text-white/70 font-bold">Забыли пароль?</a>
+        </div>
+        <div class="text-xxs md:text-xs">
+            <a href="{{route('user.registration')}}" class="text-white hover:text-white/70 font-bold">Регистрация</a>
+        </div>
+    </div>
 
     <ul class="flex flex-col md:flex-row justify-between gap-3 md:gap-4 mt-14 md:mt-20">
         <li>

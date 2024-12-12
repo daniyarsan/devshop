@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Brand;
+use Modules\Catalog\Models\Brand;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,8 +20,10 @@ class ProductFactory extends Factory
         return [
             'title' => fake()->name(),
             'brand_id' => Brand::query()->inRandomOrder()->value('id'),
-            'thumb' => fake()->file(base_path('/tests/Fixtures/Images/products'), storage_path('/app/public/images/products'), false ),
-            'price' => fake()->numberBetween(1000, 100000)
+            'price' => fake()->numberBetween(1000, 100000),
+            'featured' => fake()->boolean,
+            'sorting' => fake()->numberBetween(1, 999),
+            'thumb' => fake()->file(base_path('/tests/Fixtures/images/products'), storage_path('/app/public/images/products'), false)
         ];
     }
 }

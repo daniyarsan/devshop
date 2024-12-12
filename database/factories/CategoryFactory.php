@@ -2,13 +2,17 @@
 
 namespace Database\Factories;
 
+use Modules\Catalog\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
+ * @extends Factory<Category>
  */
 class CategoryFactory extends Factory
 {
+
+    protected $model = Category::class;
+
     /**
      * Define the model's default state.
      *
@@ -18,6 +22,8 @@ class CategoryFactory extends Factory
     {
         return [
             'title' => fake()->words(2, true),
+            'featured' => fake()->boolean,
+            'sorting' => fake()->numberBetween(1, 999),
         ];
     }
 }
